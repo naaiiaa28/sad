@@ -2,13 +2,14 @@
     "preprocessing": {
         "unique_category_threshold": 51, 
         "drop_features": [], 
-        "impute_strategy": "mean",
+        "impute_strategy": "eliminar",
         "scaling": "standard",
         "text_process": "tf-idf",
-        "sampling": "undersampling"
-    },
+        "sampling": "oversampling",
+        "muestra_pequeña": true,
+        "dividir_categorias": false},
     "kNN": {
-        "n_neighbors": [3, 4, 5, 6, 7, 8, 9, 10, 11],
+        "n_neighbors": [2,4,6],
         "weights": ["uniform", "distance"],
         "algorithm": ["auto"],
         "leaf_size": [20, 30, 40],
@@ -23,13 +24,23 @@
         "splitter": ["best"]
     },
     "random_forest": {
-        "n_estimators": [50],
+        "n_estimators": [10,20,100],
         "criterion": ["gini"],
-        "max_depth": [5, 10],
+        "max_depth": [6, 50],
         "min_samples_split": [2, 5, 10],
-        "min_samples_leaf": [1, 2, 4],
+        "min_samples_leaf": [1, 3, 10],
         "max_features": ["sqrt", "log2"],
         "bootstrap": [false]
+    },
+    "naive_bayes_cat": {
+        "alpha": [0.00000001,0.0001,0.1, 0.25, 0.5, 0.75, 1.0, 2.0],
+        "fit_prior": [true, false]
+        },
+    "naive_bayes_num": {
+    "var_smoothing": [1e-9, 1e-8, 1e-7]
     }
-}
+
+    }
+
+    
 
